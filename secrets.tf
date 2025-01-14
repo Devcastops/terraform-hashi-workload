@@ -9,7 +9,7 @@ resource "vault_mount" "this" {
 
 resource "vault_kv_secret_v2" "this" {
   for_each     = toset(var.secret_paths)
-  mount        = vault_mount.this.path
+  mount        = vault_mount.this[0].path
   name         = each.value
   data_json    = jsonencode({})
   disable_read = true
