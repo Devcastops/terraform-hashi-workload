@@ -1,5 +1,5 @@
 resource "vault_mount" "this" {
-  count              = var.nomad_addr != "" ? 1 : 0
+  count              = var.vault_addr != "" ? 1 : 0
   path               = "${local.safe_namespace}/${var.job_name}"
   type               = "kv"
   options            = { version = "2" }
