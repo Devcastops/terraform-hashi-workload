@@ -1,6 +1,6 @@
 # It can sometimes be helpful to wait for a particular plugin to be available
 data "nomad_plugin" "gcp" {
-  count     = var.gcp_volume_required ? 1 : 0
+  count            = var.gcp_volume_required ? 1 : 0
   plugin_id        = "gcp-gce0"
   wait_for_healthy = true
 }

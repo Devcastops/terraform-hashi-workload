@@ -1,5 +1,6 @@
 variable "vault_addr" {
   type        = string
+  default     = ""
   description = "The address for the vault cluster"
 }
 
@@ -17,7 +18,8 @@ variable "job_spec" {
 }
 
 variable "namespace" {
-  type = string
+  type    = string
+  default = "default"
 }
 
 variable "gcp_volume_required" {

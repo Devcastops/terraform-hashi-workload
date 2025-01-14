@@ -3,6 +3,6 @@ resource "nomad_job" "run" {
   hcl2 {
     vars = merge({
       namespace = local.safe_namespace
-    },{})
+    }, {})
   }
 }
