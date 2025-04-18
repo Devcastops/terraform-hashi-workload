@@ -13,7 +13,18 @@ resource "nomad_csi_volume" "minio" {
   volume_id    = var.job_name
   name         = "${local.safe_namespace}-${var.job_name}"
   capacity_min = var.volume_capacity
-
+  capability {
+    access_mode     = "multi-node-multi-writer"
+    attachment_mode = "file-system"
+  }
+  secrets = {
+    accessKeyID     = var.minio_access_key
+    secretAccessKey = var.minio_secret_key
+    endpoint        = var.minio_endpoint
+  }
+  parameters = {
+    mounter = "s3fs"
+  }
   lifecycle {
     prevent_destroy = false
   }
