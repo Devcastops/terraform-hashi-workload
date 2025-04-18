@@ -27,6 +27,11 @@ variable "gcp_volume_required" {
   default = false
 }
 
+variable "minio_volume_required" {
+  type    = bool
+  default = false
+}
+
 variable "volume_capacity" {
   type    = string
   default = "10GiB"
